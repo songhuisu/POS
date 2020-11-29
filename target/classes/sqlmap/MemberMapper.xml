@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="memberService" >
+
+	<insert id="insertMember" parameterType="MemberDTO">
+		INSERT INTO MEMBER(ID, PW, NAME, EMAIL, PHONE)
+		VALUES (#{id},#{pw},#{name},#{email},#{phone})
+	</insert>
+	
+	<select id="selectLogin" parameterType="LoginDTO" resultType="LoginDTO">
+		SELECT ID, NAME
+		FROM MEMBER
+		WHERE ID=#{id} AND PW=#{pw}
+	</select>
+	
+	<select id="selectId" parameterType="String" resultType="Integer">
+		SELECT COUNT(ID)
+		FROM MEMBER
+		WHERE ID=#{id}
+	</select>
+	
+	<select id="selectMember" parameterType="String" resultType="MemberDTO">
+		SELECT ID, NAME, EMAIL, PHONE
+		FROM MEMBER
+		WHERE ID=#{id}
+	</select>
+	
+	<select id="selectPw" parameterType="LoginDTO" resultType="Integer">
+		SELECT COUNT(ID)
+		FROM MEMBER
+		WHERE ID=#{id} AND PW=#{pw}
+	</select>
+	
+	<update id="updateMember" parameterType="UpdateDTO">
+		UPDATE MEMBER
+		SET PW=#{pw}, NAME=#{name}, EMAIL=#{email}, PHONE=#{phone}
+		WHERE ID=#{id}
+	</update>
+	
+	<delete id="deleteMember" parameterType="LoginDTO">
+		DELETE FROM MEMBER
+		WHERE ID=#{id}
+	</delete>
+	
+</mapper>

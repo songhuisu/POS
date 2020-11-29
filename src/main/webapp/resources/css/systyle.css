@@ -1,0 +1,61 @@
+@charset "EUC-KR";
+body{
+			margin: 0;
+		}
+		#active{
+			color: red;
+		}
+
+		h1 {
+			font-size: 45px;
+			text-align: center;
+			border-bottom: 3px solid gray;
+			margin: 0;
+			padding: 20px;
+		}
+		ol{
+			border-right: 3px solid gray;
+			width: 100px;
+			margin: 0;
+			padding: 20px;
+		}
+		#grid{
+			display: grid;
+			grid-template-columns: 150px 1fr;
+		}
+		#grid ol{
+			padding-left: 30px;
+		}
+		#article{
+			padding-left: 14px;
+		}
+		@media(max-width: 800px){
+			#grid{
+				display: block;
+			}
+			ol{
+				border-right: none;
+			}
+			h1 {
+				border-bottom: none;
+			}
+		}
+		table { 
+			border-collapse : collapse;
+		}
+		td, th { 
+			text-align : left;
+			padding : 5px;
+			height : 15px;
+			width : 100px;
+		}
+		thead, tfoot {
+			background : darkgray;
+			color : yellow;
+		}
+		tbody tr:nth-child(even) {
+			background : aliceblue;
+		}
+		tbody tr:hover { 
+			background : blue;
+		}
